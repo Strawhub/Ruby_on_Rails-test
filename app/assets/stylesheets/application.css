@@ -25,3 +25,8 @@ body{
 ul > li {
     margin-bottom: 5px;
 }
+
+.test{
+    width: 600px;
+    height: 200px;
+}
