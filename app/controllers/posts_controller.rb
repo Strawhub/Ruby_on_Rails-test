@@ -9,14 +9,19 @@ class PostsController < ApplicationController
     end
 
     def new
+        @post = Post.new
     end
 
     def create
         # render plain: params[:post].inspect
         @post = Post.new(post_params)
-        @post.save
-        # redirect
-        redirect_to posts_path
+        if @post.save
+            # redirect
+            redirect_to posts_path
+        else
+            # render plain: @post.errors.inspect
+            render 'new'
+        end
     end
 
     private
