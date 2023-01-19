@@ -7,11 +7,8 @@
 <% @post.comments.each do |comment| %>
 <li>
     <%= comment.body %>
-    <%= button_to 'DELETE',
-    post_comment_path(@post, comment),
-    method: :delete,
-    class: 'command',
-    data: { confirm: 'Sure?' } %>
+    <%= link_to "delete", post_comment_path(@post, comment), 
+    data: { turbo_method: :delete, turbo_confirm: 'Sure?'}%>
 </li>
 <% end %>
 </ul>
